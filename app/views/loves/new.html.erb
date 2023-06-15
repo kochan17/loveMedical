@@ -1,0 +1,27 @@
+<div class="container pt-3">
+  <h1 class="text-4xl font-bold mb-6">恋人適性診断</h1>
+
+  <p class="mb-10">
+    あなたの情報を入力してください。AIがあなたの理想的なパートナーの情報を分析します。
+  </p>
+  <%= form_with model: @love, method: :post, data: { turbo: false }, class: "mb-6" do |form| %>
+    <%= form.label :personality, "性格", class: "block text-lg mb-2" %>
+    <%= form.text_field :personality, class: "input input-bordered input-secondary w-full max-w-x mb-2" %>
+
+    <%= form.label :occupation, "職業", class: "block text-lg mb-2" %>
+    <%= form.text_field :occupation, class: "input input-bordered input-secondary w-full max-w-x mb-2" %>
+
+    <%= form.label :favorite_food, "好きな食べ物", class: "block text-lg mb-2" %>
+    <%= form.text_field :favorite_food, class: "input input-bordered input-secondary w-full max-w-x mb-2" %>
+
+    <%= form.label :birthday, "誕生日", class: "block text-lg mb-2" %>
+    <%= form.date_field :birthday, class: "input input-bordered input-secondary w-full max-w-x mb-2" %>
+
+    <%= form.label :background, "経歴", class: "block text-lg mb-2" %>
+    <%= form.text_area :background, class: "input input-bordered input-secondary w-full max-w-x mb-2" %>
+
+    <div class="mt-4">
+      <%= form.submit "理想のパートナーを知る", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
