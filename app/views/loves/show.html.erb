@@ -4,10 +4,15 @@
     <div class="card-body">
       <h2 class="card-title">パートナー情報</h2>
       <p class="mb-8">あなたの情報：<%= @love.personality %>, <%= @love.occupation %>, <%= @love.favorite_food %>, <%= @love.birthday %>, <%= @love.background %></p>
-      <p><%= html_safe_newline(@love.ideal_partner) %></p>
+      <p><%= @love.ideal_partner %></p>
     </div>
   </div>
   <div class="text-center">
-    <%= link_to 'もう一度', new_love_path, class: 'btn btn-outline btn-accent'%>
+    <p><%= @love.ideal_partner %></p>
+  </div>
+
+  <!-- Debug information -->
+  <div class="text-center">
+    <pre><%= @love.inspect %></pre>
   </div>
 </div>
