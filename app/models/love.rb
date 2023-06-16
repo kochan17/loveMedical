@@ -5,5 +5,6 @@ class Love < ApplicationRecord
 
   def create_partner_info_from_user_info
     self.ideal_partner = OpenAi.generate_partner_info(self.personality, self.occupation, self.favorite_food, self.birthday, self.background)
+    puts self.ideal_partner
   end
 end
