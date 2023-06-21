@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  root to: 'loves#new'
-    resources :loves, only: %i[show new create]
+  resources :users, only: [:new, :create, :show]
+  root 'users#new'
 end
