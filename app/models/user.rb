@@ -6,15 +6,23 @@ class User < ApplicationRecord
   private
 
   def generate_partner_proposal
-    OpenAI.api_key = ENV['OPENAI_API_KEY']
-
-    response = OpenAI::Completion.create(
-      engine: "gpt-3.5-turbo",
-      prompt: "Based on the birthday #{self.birthday}, describe the destiny partner.",
-      max_tokens: 100
+    client = OpenAI::Client.new
+    response = client.chat(
+      parameters: {
+        model: "gpt-3.5-turbo-16k",
+        messages: [
+          { role: 'system', content: "Based on the birthday #{self.birthday}, describe the destiny partner." }
+        ]
+      }
     )
-
-    self.partner_proposal = response.choices.first.text.strip
-    self.save
+  
+    puts "OpenAI API Response: #{response.inspect}" # レスポンスをログに出力
+  
+    if response['choices'].present?
+      self.partner_proposal = response['choices'].first['message']['content'].strip
+      self.save
+    else
+      puts "No choices in the response from OpenAI API"
+    end
   end
 end
