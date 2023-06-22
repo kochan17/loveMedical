@@ -11,7 +11,7 @@ class User < ApplicationRecord
       parameters: {
         model: "gpt-3.5-turbo-16k",
         messages: [
-          { role: 'system', content: "Based on the birthday #{self.birthday}, describe the destiny partner." }
+          { role: 'system', content: "Based on the birthday #{self.birthday}, describe the destiny partner.lang: ja" }
         ]
       }
     )

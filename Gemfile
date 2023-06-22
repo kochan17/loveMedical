@@ -54,3 +54,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "ruby-openai"
 gem 'dotenv-rails', groups: [:development, :test]
+group :production do
+  gem 'pg'
+end
