@@ -11,7 +11,7 @@ class User < ApplicationRecord
       parameters: {
         model: "gpt-3.5-turbo-16k",
         messages: [
-          { role: 'system', content: "Based on the birthday #{self.birthday}, describe the destiny partner." }
+          { role: 'system', content: "あなたはプロの占い師で、算命学を用いてユーザーの運命の人を占います。 #{self.birthday}, この誕生日にピッタリの素敵な異性の特徴を項目ごとに分けて教えてください。" }
         ]
       }
     )

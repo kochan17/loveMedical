@@ -1,3 +1,19 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  background-color: #f0f0f0;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+h1 {
+  color: #333;
+}
+
+p {
+  color: #666;
+}
